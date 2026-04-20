@@ -66,6 +66,6 @@ Pull requests welcome. Criteria for accepting a skill:
 
 MIT. See [LICENSE](LICENSE).
 
-## Credit
+## The pattern behind these skills
 
-Extracted from patterns developed in [reed-fwm](https://github.com/scottd3v/reed-fwm) (private) — the working operator vault where these skills started. The lesson behind the pattern: [crackedpm.ai/preflight/claude-code/cc-12-sessions-and-parallel](https://crackedpm.ai/preflight/claude-code/cc-12-sessions-and-parallel).
+Read the lesson these skills come from: [crackedpm.ai/preflight/claude-code/cc-12-sessions-and-parallel](https://crackedpm.ai/preflight/claude-code/cc-12-sessions-and-parallel).
