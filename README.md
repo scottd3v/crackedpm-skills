@@ -37,8 +37,20 @@ Start Claude Code in any directory and type `/`. You should see the imported com
 | Skill | What it does |
 |---|---|
 | [`/log-session`](commands/log-session.md) | Writes a session journal to `log/` (or wherever you configure) with a copy-pasteable resume prompt for your next session. The pattern behind [`/preflight/claude-code/cc-12`](https://crackedpm.ai/preflight/claude-code/cc-12-sessions-and-parallel). |
+| [`/seed`](commands/seed.md) | First-time setup for the handoff trio in a new repo. Detects project type, drops a noise filter, writes a starter `next-session.md`. |
+| [`/handoff`](commands/handoff.md) | End-of-session snapshot. Overwrites a single `next-session.md` so tomorrow's session reads it first. ([sample output](examples/sample-next-session.md)) |
+| [`/resume`](commands/resume.md) | Start-of-session pickup. Reads the prior `next-session.md`, surfaces where work left off + the queued next action. |
 
 _More starter skills coming as they're genericized from their project-specific originals: `/new-skill`, `/ingest`, `/lint`._
+
+### Pick one: `/log-session` vs the handoff trio
+
+Both patterns solve "tomorrow's session shouldn't have to re-derive context from git." They differ in how they store and read state:
+
+- **`/log-session`** — accumulating journal at `log/<date>-<slug>.md`. Each session gets its own dated file; the "next session" prompt is a copy-paste block you read out yourself. Best for solo work where you also want a long-form trail.
+- **`/seed` + `/handoff` + `/resume`** — single overwriting `next-session.md` paired with a read-side `/resume` that auto-orients. Best when you want the next session to pick up cold without manual paste, and especially when your project has structured `docs/bug-log.md` or `docs/feature-inventory.md` files the snapshot can pull from.
+
+Pick one. Installing both works but the file outputs don't talk to each other.
 
 ## Configure per-project
 
